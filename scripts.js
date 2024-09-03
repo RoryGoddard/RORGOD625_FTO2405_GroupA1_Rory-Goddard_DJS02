@@ -9,8 +9,15 @@ form.addEventListener("submit", (event) => {
     alert(
       "Division not performed. Both values are required in inputs. Try again"
     );
+  } else if (dividend === "YOLO" && divider === "+++") {
+    document.write("Something critical went wrong. Please reload the page")
+    console.trace();
   } else if (!isNumeric(dividend) || !isNumeric(divider)) {
     alert("Please input valid whole numbers");
+  } else if (dividend === "0" || divider === "0") {
+    result.innerText = ""
+    console.trace();
+    alert("Division not performed. Invalid number provided. Try again");
   } else {
     result.innerText = Math.floor(dividend / divider);
   }
@@ -25,6 +32,5 @@ function isNumeric(num) {
 }
 
 function isEmpty(num) {
-  console.log(num)
   return num === "";
 }
